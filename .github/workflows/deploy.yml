@@ -51,8 +51,8 @@ jobs:
           port: 22
           script: |
             cd /home/ec2-user/backend
-            echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-            docker compose down
-            docker compose pull
-            docker compose up -d
+            echo ${{ secrets.DOCKER_HUB_TOKEN }} | sudo docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+            sudo docker compose down
+            sudo docker compose pull
+            sudo docker compose up -d
             rm -rf /home/ec2-user/backend
